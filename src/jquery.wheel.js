@@ -7,8 +7,10 @@
 		filter: $.event.mouseHooks.filter
 	};
 
-	// Don't polyfill wheel event in Chrome and Firefox
-	if ( 'onwheel' in window ) {
+	// Don't polyfill wheel event in browsers supporting it
+	// IE has no onwheel attribute, but earliest implementations might not have
+	// WheelEvent attribute
+	if ( 'onwheel' in window || 'WheelEvent' in window ) {
 		return;
 	}
 

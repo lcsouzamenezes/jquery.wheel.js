@@ -1,6 +1,6 @@
-/*! jquery.wheel.js - v0.1.0 - 2014-08-12
+/*! jquery.wheel.js - v0.1.1 - 2015-05-15
 * https://github.com/louisremi/jquery.wheel.js
-* Copyright (c) 2014 Louis-Rémi Babé; Licensed MIT */
+* Copyright (c) 2015 Louis-Rémi Babé; Licensed MIT */
 (function($) {
 	'use strict';
 
@@ -10,8 +10,10 @@
 		filter: $.event.mouseHooks.filter
 	};
 
-	// Don't polyfill wheel event in Chrome and Firefox
-	if ( 'onwheel' in window ) {
+	// Don't polyfill wheel event in browsers supporting it
+	// IE has no onwheel attribute, but earliest implementations might not have
+	// WheelEvent attribute
+	if ( 'onwheel' in window || 'WheelEvent' in window ) {
 		return;
 	}
 
