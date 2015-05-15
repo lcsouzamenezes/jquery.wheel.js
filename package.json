@@ -1,6 +1,6 @@
 {
   "name": "jquery.wheel.js",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Cross browser wheel event",
   "keywords": [
     "jquery-plugin"
