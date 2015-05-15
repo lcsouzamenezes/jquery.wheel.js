@@ -1,4 +1,4 @@
-/*! jquery.wheel.js - v0.1.1 - 2015-05-15
+/*! jquery.wheel.js - v0.1.2 - 2015-05-15
 * https://github.com/louisremi/jquery.wheel.js
 * Copyright (c) 2015 Louis-Rémi Babé; Licensed MIT */
 (function($) {
