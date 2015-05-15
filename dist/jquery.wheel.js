@@ -4,18 +4,21 @@
 (function($) {
 	'use strict';
 
-	// Always proxy event data to handlers
-	$.event.fixHooks.wheel = {
+	// event data that will be passed to the handler
+	var fixWheel = {
 		props: $.event.mouseHooks.props.concat('deltaMode', 'deltaX', 'deltaY', 'deltaZ'),
 		filter: $.event.mouseHooks.filter
 	};
 
 	// Don't polyfill wheel event in browsers supporting it
 	// IE has no onwheel attribute, but earliest implementations might not have
-	// WheelEvent attribute
+	// WheelEvent constructor
 	if ( 'onwheel' in window || 'WheelEvent' in window ) {
+		$.event.fixHooks.wheel = fixWheel;
 		return;
 	}
+
+	$.event.fixHooks.mousewheel = fixWheel;
 
 	$.event.special.wheel = {
 		setup: function() {
